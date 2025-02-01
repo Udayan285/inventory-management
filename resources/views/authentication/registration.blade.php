@@ -39,11 +39,11 @@
                 <form action="{{ route('store') }}" method="POST" class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                     @csrf
 
-                    <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="d-flex align-items-center justify-content-center mb-3">
                         <a href="index.html" class="">
                             <h3 class="text-primary">iManagement</h3>
                         </a>
-                        <h3>Sign Up</h3>
+                        
                     </div>
 
                     <!-- Username Field -->
@@ -93,7 +93,7 @@
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                    <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
+                    <p class="text-center mb-0">Already have an Account? <a href="{{ route("login") }}">Sign In</a></p>
                 </form>
 
             </div>

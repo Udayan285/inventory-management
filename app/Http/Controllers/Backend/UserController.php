@@ -22,7 +22,11 @@ class UserController extends Controller
         return view('authentication.registration');
     }
 
-
+     //Login view
+     function login(Request $request)
+     {
+         return view('authentication.login');
+     }
 
 
 
@@ -57,7 +61,7 @@ class UserController extends Controller
         ]);
 
         if(Auth::attempt($credentials)){
-            return redirect()->route('dashboard')->with('status',"Congratuons! you're logged in now.");
+            return redirect()->route('dashboard')->with('success',"Congratuons! you are logged in now.");
         }
         else{   
             return redirect()->back()->with('error', 'Invalid credentials');
@@ -67,12 +71,12 @@ class UserController extends Controller
         
     }
 
-
-
-
-    //Login view
-    function login(Request $request)
+    function logout()
     {
-        return view('authentication.login');
+        Auth::logout();
+    
+        return redirect('/login')->with('logout',"You have successfully logged out!"); // Redirect to login or home page
     }
+
+   
 }

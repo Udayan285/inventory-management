@@ -29,6 +29,9 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('backend/css/bootstrap.min.css') }}" rel="stylesheet">
 
+     <!-- SweetAlert CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
 
     
 
@@ -38,6 +41,21 @@
 
 <body>
     <div class="container-fluid position-relative bg-white d-flex p-0">
+
+        @if (session('success'))
+            @push('scripts')
+                <script>
+                    Swal.fire({
+                        title: 'Success!',
+                        text: "{{ session('success') }}",
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                </script>
+            @endpush
+        @endif
+
+
         <!-- Spinner Start -->
         {{-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -69,6 +87,10 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Include Stacked Scripts -->
+    @stack('scripts')
 
   
 

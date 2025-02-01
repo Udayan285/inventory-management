@@ -29,7 +29,7 @@
                 <a href="#" class="nav-item nav-link"><i class="fa-solid fa-receipt"></i>Acounting reports</a>
                 <a href="#" class="nav-item nav-link"><i class="fa-solid fa-truck-ramp-box"></i>Inventory tracking</a>
                 <a href="#" class="nav-item nav-link"><i class="fa-solid fa-users"></i>User roles</a>
-                <a href="#" class="nav-item nav-link"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                <a href="{{ route('logout') }}" class="nav-item nav-link"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
                 {{-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                     <div class="dropdown-menu bg-transparent border-0">
