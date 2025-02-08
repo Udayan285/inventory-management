@@ -75,7 +75,7 @@ class UserController extends Controller
     {
         Auth::logout();
     
-        return redirect('/login')->with('logout',"You have successfully logged out!"); // Redirect to login or home page
+        return redirect('/login')->with('logout',"You have successfully logged out!");
     }
 
    
