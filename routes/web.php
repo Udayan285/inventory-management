@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Backend\UserController;
-use App\Http\Middleware\ValidUser;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ProfileController;
 
 //Authentication
 Route::get('/register', [UserController::class, 'register'])->name('register');
@@ -17,6 +17,9 @@ Route::post('/login', [UserController::class, 'signIn'])->name('signIn');
 Route::middleware('isValidUser')->group(function(){
     // Dashboard 
     Route::get('/',[UserController::class,'dashboard'])->name('dashboard');
+
+    //Profile
+    Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
 
 });
 

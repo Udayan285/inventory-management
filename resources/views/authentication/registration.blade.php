@@ -3,19 +3,6 @@
 @section('signupContent')
     <!-- Sign Up Start -->
     <div class="container-fluid">
-
-        {{-- @if (session('success'))
-            @push('scripts')
-                <script>
-                    Swal.fire({
-                        title: 'Success!',
-                        text: "{{ session('success') }}",
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    });
-                </script>
-            @endpush
-        @endif --}}
         @if (session('error'))
             @push('scripts')
                 <script>
@@ -43,7 +30,7 @@
                         <a href="index.html" class="">
                             <h3 class="text-primary">iManagement</h3>
                         </a>
-                        
+
                     </div>
 
                     <!-- Username Field -->
@@ -65,6 +52,21 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
+                    <!-- Role Field -->
+                    <div class="form-floating mb-3">
+                        <select class="form-control @error('role') is-invalid @enderror" name="role" id="floatingRole">
+                            <option value="">Select Role</option>
+                            <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                            <option value="manager" {{ old('role') == 'manager' ? 'selected' : '' }}>Manager</option>
+                            <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
+                        </select>
+                        <label for="floatingRole">Role</label>
+                        @error('role')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
 
                     <!-- Password Field -->
                     <div class="form-floating mb-4">
@@ -93,7 +95,7 @@
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                    <p class="text-center mb-0">Already have an Account? <a href="{{ route("login") }}">Sign In</a></p>
+                    <p class="text-center mb-0">Already have an Account? <a href="{{ route('login') }}">Sign In</a></p>
                 </form>
 
             </div>

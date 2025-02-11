@@ -32,11 +32,10 @@
      <!-- SweetAlert CSS -->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-
-    
-
     <!-- Template Stylesheet -->
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
+
+    @stack('styles')
 </head>
 
 <body>
@@ -55,7 +54,6 @@
             @endpush
         @endif
 
-
         <!-- Spinner Start -->
         {{-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -63,14 +61,13 @@
             </div>
         </div> --}}
         <!-- Spinner End -->
+       
+        @include("backend.partials.sidebar")
 
-
-
-        {{-- problem --}}
-       @yield("sidebarLayout")
-
-
-       @yield("mainLayout")
+        <div class="content">
+        @include('backend.partials.navbar')
+        @yield("mainLayout")
+        </div>
 
 
         <!-- Back to Top -->
